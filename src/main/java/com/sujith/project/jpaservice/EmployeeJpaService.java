@@ -10,6 +10,7 @@ import jakarta.transaction.*;
 import org.apache.commons.lang.*;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.dao.*;
 import org.springframework.stereotype.*;
 import org.springframework.web.method.annotation.*;
 
@@ -53,6 +54,8 @@ public class EmployeeJpaService {
             }
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Null fields not allowed");
+        }catch (EmptyResultDataAccessException e){
+            throw new ApiRequestException("Employee not found with given id : "+id);
         }
     }
 
@@ -72,7 +75,7 @@ public class EmployeeJpaService {
 
         try {
             Employee emp = employeeMapper.copyToEmp(theEmployee);
-            employeeJpa.save(emp);
+            employeeDao.save(emp);
             return emp;
 
 
@@ -94,7 +97,7 @@ public class EmployeeJpaService {
 
 
         }
-        return employeeJpa.saveAll(employeeList);
+        return employeeDao.saveAll(employeeList);
     }
 
 
@@ -133,6 +136,8 @@ public class EmployeeJpaService {
             throw new IllegalStateException("Firstname should not be null");
         } catch (NullPointerException e) {
             throw new ApiRequestException("No Employee was found to Update");
+        }catch (EmptyResultDataAccessException e){
+            throw new ApiRequestException("No Employee was found to Update");
         }
     }
 
@@ -168,12 +173,17 @@ public class EmployeeJpaService {
 
 
     public int maxInDept(String dept) {
-        int max = employeeDao.maxInDept(dept);
-        if (max <= 0) {
-            throw new ApiRequestException("Employees does not exist in given department");
-        } else {
-            return max;
+        try{
+            int max = employeeDao.maxInDept(dept);
+            if (max <= 0) {
+                throw new ApiRequestException("Employees does not exist in given department");
+            } else {
+                return max;
+            }
+        }catch (NullPointerException e) {
+            throw new ApiRequestException("Department "+dept+" not found");
         }
+
     }
 
 
@@ -183,6 +193,10 @@ public class EmployeeJpaService {
             return employeeDao.updateSalaryById(id, salary);
         } catch (NullPointerException e) {
             throw new ApiRequestException("Employee not found");
+        }catch (EmptyResultDataAccessException e){
+            throw new ApiRequestException("No Employee was found to Update");
+        }catch (MethodArgumentTypeMismatchException e){
+            throw new ApiRequestException("There was an error in your request");
         }
     }
 

@@ -4,7 +4,6 @@ import com.sujith.project.dao.*;
 import com.sujith.project.entity.*;
 import com.sujith.project.exceptions.*;
 import com.sujith.project.jpa.*;
-import jakarta.transaction.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
@@ -31,9 +30,4 @@ public class AddressJpaService {
         }
     }
 
-
-    @Transactional
-    public Address insert(Address address) {
-        return addressDao.insert(address);
-    }
 }

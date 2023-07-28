@@ -12,7 +12,7 @@ public interface EmployeeDao {
 
     Employee save(Employee theEmployee);
 
-
+List<Employee> saveAll(List<Employee> employees);
     Employee update(Employee theEmployee);
 
 

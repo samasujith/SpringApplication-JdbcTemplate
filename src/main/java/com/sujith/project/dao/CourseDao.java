@@ -13,5 +13,5 @@ public interface CourseDao {
 
     Course getCourse(int id);
 
-    Course getCourseIdByName(String name);
+
 }

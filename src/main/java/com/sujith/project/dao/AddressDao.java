@@ -8,5 +8,4 @@ import java.util.*;
 public interface AddressDao {
     List<Address> findAllAddress();
 
-    Address insert(Address address);
 }

@@ -1,10 +1,9 @@
 package com.sujith.project.dao;
 
 import com.sujith.project.entity.*;
-import com.sujith.project.exceptions.*;
-import jakarta.persistence.*;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.jdbc.core.*;
 import org.springframework.stereotype.*;
 
 import java.util.*;
@@ -12,33 +11,49 @@ import java.util.*;
 @Repository
 public class CourseDaoImpl implements CourseDao {
 
-    private final EntityManager entityManager;
+
     private final Logger logger = LoggerFactory.getLogger(CourseDaoImpl.class);
+    JdbcTemplate jdbcTemplate;
+    RowMapper<Course> courseRowMapper = (rs, rowNum) -> {
+        Course course = new Course();
+        course.setCourseName(rs.getString("course_name"));
+        course.setId(rs.getInt("id"));
+        return course;
+    };
 
     @Autowired
-    public CourseDaoImpl(EntityManager entityManager) {
-        this.entityManager = entityManager;
+
+    public CourseDaoImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
     public List<Course> getAll() {
-        TypedQuery<Course> courseList = entityManager.createQuery("FROM Course ", Course.class);
-        return courseList.getResultList();
+        String query = "select * from course";
+        return jdbcTemplate.query(query, courseRowMapper);
     }
 
     @Override
 
-    public Course insertCourse(Course theCourse) {
-        Query temp = entityManager.createQuery("select count(*) from Course c where c.courseName=:thename ", Course.class);
-        temp.setParameter("thename", theCourse.getCourseName());
-        long count = (long) temp.getSingleResult();
-        if (count == 0 && !theCourse.getCourseName().isEmpty()) {
-            entityManager.persist(theCourse);
-            return theCourse;
+    public Course insertCourse(Course course) {
+
+        String nextVal = "select count(id) from course";
+        int next = jdbcTemplate.queryForObject(nextVal, Integer.class);
+
+        next++;
+
+        String courseQuery = "select count(course_name) from course where course_name=?";
+        int count = jdbcTemplate.queryForObject(courseQuery, Integer.class, course.getCourseName());
+        if (count > 0) {
+            Course course1 = jdbcTemplate.queryForObject("select * from course c where c.course_name=" + "\"" + course.getCourseName() + "\"", courseRowMapper);
         } else {
-            logger.error("Course already exist with name : {} ", theCourse.getCourseName());
-            throw new ApiRequestException("Course alreasy exist with name : " + theCourse.getCourseName());
+            int totalCourses = jdbcTemplate.queryForObject("select count(id) from course", Integer.class);
+            String countQuery = "INSERT INTO course ( id,course_name) VALUES (?, ?)";
+            jdbcTemplate.update(countQuery, next, course.getCourseName());
+
         }
+        String query = "select * from course c where c.course_name= ?";
+        return course;
     }
 
     @Override
@@ -51,26 +66,9 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public Course getCourse(int id) {
-        try {
-            TypedQuery<Course> courseList = entityManager.createQuery("FROM Course c where c.id=:value  ", Course.class);
-            courseList.setParameter("value", id);
-            List<Course> temp = courseList.getResultList();
-            return temp.get(0);
-        } catch (Exception e) {
-            logger.error("No course found with given id : {} ", id);
-            throw new NoResultException("no course found");
-        }
+        String query = "select * from course c where c.id=" + id;
+        return jdbcTemplate.queryForObject(query, Course.class);
 
     }
 
-    public Course getCourseIdByName(String name) {
-        try {
-            Query query = entityManager.createQuery("SELECT c FROM Course c WHERE c.courseName=:nameValue ");
-            query.setParameter("nameValue", name);
-            return (Course) query.getSingleResult();
-        } catch (Exception e) {
-            logger.error("Course does not exist with name : {} ", name);
-            throw new NoResultException("Course does not exist");
-        }
-    }
 }

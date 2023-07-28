@@ -55,18 +55,4 @@ class AddressServiceTest {
         when(addressJpa.findAll()).thenReturn(new ArrayList<>());
         assertThrows(ApiRequestException.class, () -> addressService.findAllAddress());
     }
-
-    @Test
-    @DisplayName("insertAddress_valid")
-    void insertAddress_valid() {
-        when(addressDao.insert(validAddress)).thenReturn(validAddress);
-        assertEquals(validAddress, addressService.insert(validAddress));
-    }
-
-    @Test
-    @DisplayName("insertAddress_throwApiRequestException")
-    void insertAddress_throwApiRequestException() {
-        when(addressDao.insert(invalidAddress)).thenThrow(ApiRequestException.class);
-        assertThrows(ApiRequestException.class, () -> addressService.insert(invalidAddress));
-    }
 }

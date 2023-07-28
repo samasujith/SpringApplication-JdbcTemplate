@@ -1,4 +1,15 @@
-585  [restartedMain] INFO  c.sujith.project.ProjectApplication - Starting ProjectApplication using Java 17.0.7 with PID 24256 (C:\Users\ssama\Desktop\project\springproject - with jpa\build\classes\java\main started by ssama in C:\Users\ssama\Desktop\project\springproject - with jpa)
-586  [restartedMain] DEBUG c.sujith.project.ProjectApplication - Running with Spring Boot v3.1.1, Spring v6.0.10
-587  [restartedMain] INFO  c.sujith.project.ProjectApplication - No active profile set, falling back to 1 default profile: "default"
-4614 [restartedMain] INFO  c.sujith.project.ProjectApplication - Started ProjectApplication in 4.34 seconds (process running for 5.03)
+1811 [restartedMain] INFO  c.sujith.project.ProjectApplication - Starting ProjectApplication using Java 17.0.7 with PID 25872 (C:\Users\ssama\Desktop\project\springproject - with Jdbc Template\build\classes\java\main started by ssama in C:\Users\ssama\Desktop\project\springproject - with Jdbc Template)
+1812 [restartedMain] DEBUG c.sujith.project.ProjectApplication - Running with Spring Boot v3.1.1, Spring v6.0.10
+1813 [restartedMain] INFO  c.sujith.project.ProjectApplication - No active profile set, falling back to 1 default profile: "default"
+6705 [restartedMain] INFO  c.sujith.project.ProjectApplication - Started ProjectApplication in 5.453 seconds (process running for 7.427)
+30557 [http-nio-8080-exec-4] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses POST 1.690553904315E12
+30726 [http-nio-8080-exec-4] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/courses POST 1.690553904484E12
+30726 [http-nio-8080-exec-4] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.169 seconds.
+31881 [http-nio-8080-exec-5] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses POST 1.690553905639E12
+31890 [http-nio-8080-exec-5] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/courses POST 1.690553905648E12
+31891 [http-nio-8080-exec-5] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.009 seconds.
+35387 [http-nio-8080-exec-6] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses/insertMany POST 1.690553909145E12
+35423 [http-nio-8080-exec-6] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/courses/insertMany POST 1.690553909181E12
+35423 [http-nio-8080-exec-6] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.036 seconds.
+43462 [http-nio-8080-exec-7] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/address GET 1.69055391722E12
+43711 [http-nio-8080-exec-7] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -8.039 seconds.
