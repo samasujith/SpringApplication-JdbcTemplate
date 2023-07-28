@@ -1,4 +1,118 @@
-1226 [restartedMain] INFO  c.sujith.project.ProjectApplication - Starting ProjectApplication using Java 17.0.7 with PID 11864 (C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate\build\classes\java\main started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
-1229 [restartedMain] DEBUG c.sujith.project.ProjectApplication - Running with Spring Boot v3.1.1, Spring v6.0.10
-1230 [restartedMain] INFO  c.sujith.project.ProjectApplication - No active profile set, falling back to 1 default profile: "default"
-8800 [restartedMain] INFO  c.sujith.project.ProjectApplication - Started ProjectApplication in 8.243 seconds (process running for 9.339)
+2024 [Test worker] INFO  c.s.project.ProjectApplicationTests - Starting ProjectApplicationTests using Java 17.0.7 with PID 12616 (started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
+2029 [Test worker] DEBUG c.s.project.ProjectApplicationTests - Running with Spring Boot v3.1.1, Spring v6.0.10
+2030 [Test worker] INFO  c.s.project.ProjectApplicationTests - No active profile set, falling back to 1 default profile: "default"
+10198 [Test worker] INFO  c.s.project.ProjectApplicationTests - Started ProjectApplicationTests in 8.773 seconds (process running for 12.489)
+10942 [Test worker] INFO  c.sujith.project.ProjectApplication - Starting ProjectApplication using Java 17.0.7 with PID 12616 (started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
+10942 [Test worker] DEBUG c.sujith.project.ProjectApplication - Running with Spring Boot v3.1.1, Spring v6.0.10
+10942 [Test worker] INFO  c.sujith.project.ProjectApplication - No active profile set, falling back to 1 default profile: "default"
+12776 [Test worker] INFO  c.sujith.project.ProjectApplication - Started ProjectApplication in 1.875 seconds (process running for 15.067)
+12890 [Test worker] INFO  c.s.p.c.AddressControllerTest - Starting AddressControllerTest using Java 17.0.7 with PID 12616 (started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
+12890 [Test worker] DEBUG c.s.p.c.AddressControllerTest - Running with Spring Boot v3.1.1, Spring v6.0.10
+12890 [Test worker] INFO  c.s.p.c.AddressControllerTest - No active profile set, falling back to 1 default profile: "default"
+15168 [Test worker] INFO  c.s.p.c.AddressControllerTest - Started AddressControllerTest in 2.316 seconds (process running for 17.459)
+15393 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/address GET 1.690552327905E12
+15644 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/address GET 1.690552328156E12
+15645 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.251 seconds.
+15698 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/address GET 1.69055232821E12
+15736 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.054 seconds.
+15983 [Test worker] INFO  c.s.p.c.CourseControllerTest - Starting CourseControllerTest using Java 17.0.7 with PID 12616 (started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
+15983 [Test worker] DEBUG c.s.p.c.CourseControllerTest - Running with Spring Boot v3.1.1, Spring v6.0.10
+15983 [Test worker] INFO  c.s.p.c.CourseControllerTest - No active profile set, falling back to 1 default profile: "default"
+17646 [Test worker] INFO  c.s.p.c.CourseControllerTest - Started CourseControllerTest in 1.716 seconds (process running for 19.937)
+17659 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses GET 1.690552330171E12
+17670 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/courses GET 1.690552330182E12
+17671 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.011 seconds.
+17686 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses/insertMany POST 1.690552330198E12
+17811 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/courses/insertMany POST 1.690552330323E12
+17812 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.125 seconds.
+17822 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses POST 1.690552330334E12
+17843 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.011 seconds.
+17852 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses POST 1.690552330364E12
+17859 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/courses POST 1.690552330371E12
+17859 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.007 seconds.
+17868 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses GET 1.69055233038E12
+17870 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.009 seconds.
+17888 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses/insertMany POST 1.6905523304E12
+17892 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.029 seconds.
+17954 [Test worker] INFO  c.s.p.c.EmployeeControllerTest - Starting EmployeeControllerTest using Java 17.0.7 with PID 12616 (started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
+17954 [Test worker] DEBUG c.s.p.c.EmployeeControllerTest - Running with Spring Boot v3.1.1, Spring v6.0.10
+17954 [Test worker] INFO  c.s.p.c.EmployeeControllerTest - No active profile set, falling back to 1 default profile: "default"
+19299 [Test worker] INFO  c.s.p.c.EmployeeControllerTest - Started EmployeeControllerTest in 1.387 seconds (process running for 21.59)
+19310 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/15 GET 1.690552331822E12
+19335 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/department GET 1.690552331847E12
+19362 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/department GET 1.690552331874E12
+19362 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.027 seconds.
+19371 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/maxSalary GET 1.690552331883E12
+19373 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/maxSalary GET 1.690552331885E12
+19374 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.002 seconds.
+19398 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/updateSalaryById PUT 1.69055233191E12
+19403 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/updateSalaryById PUT 1.690552331915E12
+19403 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.005 seconds.
+19410 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/findAll GET 1.690552331922E12
+19413 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/findAll GET 1.690552331925E12
+19413 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.003 seconds.
+19422 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/course GET 1.690552331934E12
+19424 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/course GET 1.690552331936E12
+19425 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.002 seconds.
+19435 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee POST 1.690552331947E12
+19444 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee POST 1.690552331956E12
+19446 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.009 seconds.
+19455 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/1 DELETE 1.690552331967E12
+19459 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.011 seconds.
+19466 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee GET 1.690552331978E12
+19469 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.022 seconds.
+19477 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee PUT 1.690552331989E12
+19479 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.033 seconds.
+19486 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee GET 1.690552331998E12
+19529 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.042 seconds.
+19535 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/department/maxSalary GET 1.690552332047E12
+19537 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.091 seconds.
+19544 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/maxSalary GET 1.690552332056E12
+19547 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.1 seconds.
+19555 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee PUT 1.690552332067E12
+19557 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee PUT 1.690552332069E12
+19557 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.002 seconds.
+19571 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/insertAll POST 1.690552332083E12
+19577 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/insertAll POST 1.690552332089E12
+19577 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.006 seconds.
+19585 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/1 GET 1.690552332097E12
+19592 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/1 GET 1.690552332104E12
+19593 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.007 seconds.
+19600 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/department GET 1.690552332112E12
+19604 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.008 seconds.
+19610 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/0 GET 1.690552332122E12
+19613 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.018 seconds.
+19618 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/findAll GET 1.69055233213E12
+19620 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.026 seconds.
+19626 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/course GET 1.690552332138E12
+19629 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.034 seconds.
+19637 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/updateSalaryById PUT 1.690552332149E12
+19638 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is -0.045 seconds.
+19644 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/department/maxSalary GET 1.690552332156E12
+19646 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/department/maxSalary GET 1.690552332158E12
+19646 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.002 seconds.
+19653 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/1 DELETE 1.690552332165E12
+19654 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/1 DELETE 1.690552332166E12
+19655 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.001 seconds.
+19661 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee GET 1.690552332173E12
+19663 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee GET 1.690552332175E12
+19664 [Test worker] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.002 seconds.
+19726 [Test worker] INFO  c.s.p.service.AddressServiceTest - Starting AddressServiceTest using Java 17.0.7 with PID 12616 (started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
+19726 [Test worker] DEBUG c.s.p.service.AddressServiceTest - Running with Spring Boot v3.1.1, Spring v6.0.10
+19727 [Test worker] INFO  c.s.p.service.AddressServiceTest - No active profile set, falling back to 1 default profile: "default"
+21006 [Test worker] INFO  c.s.p.service.AddressServiceTest - Started AddressServiceTest in 1.314 seconds (process running for 23.298)
+21102 [Test worker] INFO  c.s.p.service.CourseServiceTest - Starting CourseServiceTest using Java 17.0.7 with PID 12616 (started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
+21103 [Test worker] DEBUG c.s.p.service.CourseServiceTest - Running with Spring Boot v3.1.1, Spring v6.0.10
+21103 [Test worker] INFO  c.s.p.service.CourseServiceTest - No active profile set, falling back to 1 default profile: "default"
+22242 [Test worker] INFO  c.s.p.service.CourseServiceTest - Started CourseServiceTest in 1.167 seconds (process running for 24.533)
+22257 [Test worker] ERROR c.s.p.jpaservice.CourseJpaService - Invalid coursename
+22353 [Test worker] INFO  c.s.p.service.EmployeeServiceTest - Starting EmployeeServiceTest using Java 17.0.7 with PID 12616 (started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
+22353 [Test worker] DEBUG c.s.p.service.EmployeeServiceTest - Running with Spring Boot v3.1.1, Spring v6.0.10
+22355 [Test worker] INFO  c.s.p.service.EmployeeServiceTest - No active profile set, falling back to 1 default profile: "default"
+23444 [Test worker] INFO  c.s.p.service.EmployeeServiceTest - Started EmployeeServiceTest in 1.128 seconds (process running for 25.736)
+23491 [Test worker] INFO  c.s.p.jpaservice.EmployeeJpaService - Course already exists !
+23491 [Test worker] INFO  c.s.p.jpaservice.EmployeeJpaService - Course already exists !
+23521 [Test worker] INFO  c.s.p.jpaservice.EmployeeJpaService - Course already exists !
+23521 [Test worker] INFO  c.s.p.jpaservice.EmployeeJpaService - Course already exists !
+23551 [Test worker] ERROR c.s.p.jpaservice.EmployeeJpaService - Employee with id : 0  does not exist ! 
+23602 [Test worker] ERROR c.s.p.jpaservice.EmployeeJpaService - Employee with lastname sujith is not inserted
