@@ -1,10 +1,4 @@
-1053 [restartedMain] INFO  c.sujith.project.ProjectApplication - Starting ProjectApplication using Java 17.0.7 with PID 15008 (C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate\build\classes\java\main started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
-1054 [restartedMain] DEBUG c.sujith.project.ProjectApplication - Running with Spring Boot v3.1.1, Spring v6.0.10
-1055 [restartedMain] INFO  c.sujith.project.ProjectApplication - No active profile set, falling back to 1 default profile: "default"
-5808 [restartedMain] INFO  c.sujith.project.ProjectApplication - Started ProjectApplication in 5.289 seconds (process running for 6.463)
-31746 [http-nio-8080-exec-2] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/insertAll POST 1.69054608361E12
-33414 [http-nio-8080-exec-2] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/insertAll POST 1.690546085277E12
-33418 [http-nio-8080-exec-2] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 1.667 seconds.
-38026 [http-nio-8080-exec-3] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/findAll GET 1.69054608989E12
-38913 [http-nio-8080-exec-3] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/findAll GET 1.690546090777E12
-38915 [http-nio-8080-exec-3] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.887 seconds.
+1226 [restartedMain] INFO  c.sujith.project.ProjectApplication - Starting ProjectApplication using Java 17.0.7 with PID 11864 (C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate\build\classes\java\main started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
+1229 [restartedMain] DEBUG c.sujith.project.ProjectApplication - Running with Spring Boot v3.1.1, Spring v6.0.10
+1230 [restartedMain] INFO  c.sujith.project.ProjectApplication - No active profile set, falling back to 1 default profile: "default"
+8800 [restartedMain] INFO  c.sujith.project.ProjectApplication - Started ProjectApplication in 8.243 seconds (process running for 9.339)
