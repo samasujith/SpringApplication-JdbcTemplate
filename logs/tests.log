@@ -1,0 +1,4 @@
+585  [restartedMain] INFO  c.sujith.project.ProjectApplication - Starting ProjectApplication using Java 17.0.7 with PID 24256 (C:\Users\ssama\Desktop\project\springproject - with jpa\build\classes\java\main started by ssama in C:\Users\ssama\Desktop\project\springproject - with jpa)
+586  [restartedMain] DEBUG c.sujith.project.ProjectApplication - Running with Spring Boot v3.1.1, Spring v6.0.10
+587  [restartedMain] INFO  c.sujith.project.ProjectApplication - No active profile set, falling back to 1 default profile: "default"
+4614 [restartedMain] INFO  c.sujith.project.ProjectApplication - Started ProjectApplication in 4.34 seconds (process running for 5.03)

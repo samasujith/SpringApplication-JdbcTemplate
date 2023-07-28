@@ -1,0 +1,83 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.1'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'checkstyle'
+    id 'jacoco'
+    id "org.sonarqube" version "4.2.1.3168"
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+    all {
+        exclude group: 'commons-logging', module: 'commons-logging'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'checkstyle:checkstyle:5.0'
+    implementation 'ch.qos.logback:logback-core:1.4.7'
+    implementation 'ch.qos.logback:logback-classic:1.4.7'
+    implementation 'org.slf4j:slf4j-api:2.0.5'
+    implementation 'org.testng:testng:7.1.0'
+
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'com.mysql:mysql-connector-j'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+checkstyle {
+    configFile = file("config/checkstyle/checkstyle.xml")
+}
+checkstyleMain {
+    source = 'src/main/java'
+}
+checkstyleTest {
+    source = 'src/test/java'
+}
+jacocoTestReport {
+    dependsOn test
+    reports {
+        xml.enabled true
+        csv.enabled true
+    }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: 'com/sujith/project/dao/**')
+        }))
+    }
+}
+test {
+    finalizedBy jacocoTestReport
+}
+
+sonarqube {
+    properties {
+        property("sonar.coverage.exclusions", "**/com/sujith/project/dao/**," + "**/com/sujith/project/exceptions/**,")
+
+    }
+}
+
