@@ -12,7 +12,7 @@ import java.util.*;
 public class CourseDaoImpl implements CourseDao {
 
 
-    private final Logger logger = LoggerFactory.getLogger(CourseDaoImpl.class);
+
     JdbcTemplate jdbcTemplate;
     RowMapper<Course> courseRowMapper = (rs, rowNum) -> {
         Course course = new Course();
@@ -45,14 +45,15 @@ public class CourseDaoImpl implements CourseDao {
         String courseQuery = "select count(course_name) from course where course_name=?";
         int count = jdbcTemplate.queryForObject(courseQuery, Integer.class, course.getCourseName());
         if (count > 0) {
-            Course course1 = jdbcTemplate.queryForObject("select * from course c where c.course_name=" + "\"" + course.getCourseName() + "\"", courseRowMapper);
+            Course course1 = jdbcTemplate.queryForObject("select * from course c where c.course_name="
+                    + "\"" + course.getCourseName() + "\"", courseRowMapper);
         } else {
             int totalCourses = jdbcTemplate.queryForObject("select count(id) from course", Integer.class);
             String countQuery = "INSERT INTO course ( id,course_name) VALUES (?, ?)";
             jdbcTemplate.update(countQuery, next, course.getCourseName());
 
         }
-        String query = "select * from course c where c.course_name= ?";
+
         return course;
     }
 

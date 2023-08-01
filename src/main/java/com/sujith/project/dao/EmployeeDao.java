@@ -12,7 +12,8 @@ public interface EmployeeDao {
 
     Employee save(Employee theEmployee);
 
-List<Employee> saveAll(List<Employee> employees);
+    List<Employee> saveAll(List<Employee> employees);
+    List<Employee> findAll(int page,int count);
     Employee update(Employee theEmployee);
 
 

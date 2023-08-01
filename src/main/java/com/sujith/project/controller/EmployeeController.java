@@ -20,8 +20,8 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/findAll")
-    public List<Employee> findAll() {
-        return employeeService.findAll();
+    public List<Employee> findAll(@RequestParam(defaultValue = "0") int page,@RequestParam(defaultValue = "10") int size) {
+        return employeeService.findAll(page,size);
     }
 
     @GetMapping("/employee/{id}")

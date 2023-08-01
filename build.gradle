@@ -77,7 +77,7 @@ test {
 sonarqube {
     properties {
         property("sonar.coverage.exclusions", "**/com/sujith/project/dao/**," + "**/com/sujith/project/exceptions/**,")
-
+        property ('sonar.token', 'sqp_63a9340b3370ddd89b055d19e53b9657ab20932')
     }
 }
 

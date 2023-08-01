@@ -9,6 +9,7 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.test.context.*;
 import org.springframework.boot.test.mock.mockito.*;
+import org.springframework.dao.*;
 import org.springframework.web.method.annotation.*;
 
 import java.util.*;
@@ -121,6 +122,13 @@ class EmployeeServiceTest {
             employeeService.findById(0);
         });
     }
+    @Test
+    void findById_throwEmptyResultDataAccessException() {
+        when(employeeDao.findById(99)).thenThrow(EmptyResultDataAccessException.class);
+        assertThrows(ApiRequestException.class,() -> {
+            employeeService.findById(99);
+        });
+    }
 
     @Test
     @DisplayName("findById_throwMethodArgumentTypeMisMatchException")
@@ -133,14 +141,14 @@ class EmployeeServiceTest {
     @DisplayName("findAll_valid")
     void findAll_valid() {
         when(employeeJpa.findAll()).thenReturn(EmployeeFiles.getListOfEmployee());
-        assertEquals(EmployeeFiles.getListOfEmployee(), employeeService.findAll());
+        assertEquals(EmployeeFiles.getListOfEmployee(), employeeService.findAll(0,1));
     }
 
     @Test
     @DisplayName("findAll_throwApiRequestException")
     void findAll_throwApiRequestException() {
         when(employeeJpa.findAll()).thenThrow(ApiRequestException.class);
-        assertThrows(ApiRequestException.class, () -> employeeService.findAll());
+        assertThrows(ApiRequestException.class, () -> employeeService.findAll(2,10));
     }
 
     @Test
@@ -203,14 +211,14 @@ class EmployeeServiceTest {
     @DisplayName("saveAll_valid")
     @Test
     void saveAll_valid() {
-        when(employeeJpa.saveAll(EmployeeFiles.getListOfEmployee())).thenReturn(EmployeeFiles.getListOfEmployee());
+        when(employeeDao.saveAll(EmployeeFiles.getListOfEmployee())).thenReturn(EmployeeFiles.getListOfEmployee());
         assertEquals(EmployeeFiles.getListOfEmployee(), employeeService.saveAll(EmployeeFiles.getListOfEmployee()));
     }
 
     @DisplayName("saveAll_NonameEmployee")
     @Test
     void saveAll_NoNameEmployee() {
-        when(employeeJpa.saveAll(EmployeeFiles.getIllegalStateEmployeeResult())).thenReturn(EmployeeFiles.getIllegalStateEmployeeResult());
+        when(employeeDao.saveAll(EmployeeFiles.getIllegalStateEmployeeResult())).thenReturn(EmployeeFiles.getIllegalStateEmployeeResult());
         assertEquals(EmployeeFiles.getIllegalStateEmployeeResult(), employeeService.saveAll(EmployeeFiles.getIllegalStateEmployee()));
         // assertThrows(IllegalStateException.class,() -> employeeService.saveAll(EmployeeFiles.getIllegalStateEmployee()));
 

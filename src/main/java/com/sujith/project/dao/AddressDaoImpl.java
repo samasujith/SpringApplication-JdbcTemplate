@@ -10,12 +10,6 @@ import java.util.*;
 @Repository
 public class AddressDaoImpl implements AddressDao {
     JdbcTemplate jdbcTemplate;
-
-
-    @Autowired
-    public AddressDaoImpl(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
     RowMapper<Address> addressRowMapper = (rs, rowNum) -> {
         Address address = new Address();
         address.setId(rs.getInt("id"));
@@ -25,14 +19,16 @@ public class AddressDaoImpl implements AddressDao {
         return address;
     };
 
-    @Override
-    public List<Address> findAllAddress() {
-        //        TypedQuery<Address> tempAddress = entityManager.createQuery("from Address ", Address.class);
-        //        return tempAddress.getResultList();
-        String query="select * from address";
-        return jdbcTemplate.query(query,addressRowMapper);
+    @Autowired
+    public AddressDaoImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
+    public List<Address> findAllAddress() {
+        String query = "select * from address";
+        return jdbcTemplate.query(query, addressRowMapper);
+    }
 
 
 

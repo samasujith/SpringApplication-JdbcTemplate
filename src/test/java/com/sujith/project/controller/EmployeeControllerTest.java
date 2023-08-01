@@ -140,7 +140,7 @@ class EmployeeControllerTest {
     @Test
     @DisplayName("getAllEmployees_valid")
     void getAllEmployees_valid() throws Exception {
-        when(employeeService.findAll()).thenReturn(EmployeeDtoObject.getEmployeeList());
+        when(employeeService.findAll(2,10)).thenReturn(EmployeeDtoObject.getEmployeeList());
         mockMvc.perform(MockMvcRequestBuilders.get("/api/employee/findAll")).andExpect(status().isOk()).andExpect(result -> {
             EmployeeDtoObject.getEmployeeList();
         });
@@ -149,7 +149,7 @@ class EmployeeControllerTest {
     @Test
     @DisplayName("getAllEmployees_throwApiRequestException")
     void getAllEmployees_throwApiRequestException() throws Exception {
-        when(employeeService.findAll()).thenThrow(new ApiRequestException("No Employees were found in Database"));
+        when(employeeService.findAll(0,10)).thenThrow(new ApiRequestException("No Employees were found in Database"));
         mockMvc.perform(MockMvcRequestBuilders.get("/api/employee/findAll"))
                 .andExpect(status().isNotFound()).andExpect(jsonPath("$.message").value("No Employees were found in Database"));
     }

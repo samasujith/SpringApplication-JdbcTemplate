@@ -26,6 +26,7 @@ public class EmployeeJpaService {
     EmployeeDao employeeDao;
     CourseDao courseDao;
     EmployeeMapper employeeMapper;
+    String employeeNotFound="Employee not found with given id : ";
 
     @Autowired
     public EmployeeJpaService(EmployeeJpa employeeJpa, EmployeeDao employeeDao, CourseDao courseDao, EmployeeMapper employeeMapper) {
@@ -39,11 +40,11 @@ public class EmployeeJpaService {
         try {
             if (id <= 0) {
                 logger.error("Employee with id : {}  does not exist ! ", id);
-                throw new ApiRequestException("Employee not found with given id : " + id + " id is less than or equal to zero");
+                throw new ApiRequestException(employeeNotFound + id + " id is less than or equal to zero");
             } else {
                 Employee tempEmp = employeeDao.findById(id);
                 if (tempEmp == null) {
-                    throw new ApiRequestException("Employee not found with given id : " + id);
+                    throw new ApiRequestException(employeeNotFound + id);
                 } else {
                     try {
                         return employeeMapper.copyToDao(employeeDao.findById(id));
@@ -54,14 +55,24 @@ public class EmployeeJpaService {
             }
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException("Null fields not allowed");
-        }catch (EmptyResultDataAccessException e){
-            throw new ApiRequestException("Employee not found with given id : "+id);
+        } catch (EmptyResultDataAccessException e) {
+            throw new ApiRequestException(employeeNotFound + id);
         }
     }
 
 
-    public List<Employee> findAll() {
-        return employeeJpa.findAll();
+    public List<Employee> findAll(int page,int size) {
+
+//        List<Employee> employeeList=employeeJpa.findAll();
+//        int totalItems = employeeList.size();
+//        int start = page * size;
+//        int end=start + size;
+//        if (start > end || start >= totalItems) {
+//            throw new IllegalArgumentException("Invalid page number");
+//        }
+//
+//        return employeeList.subList(start, end);
+        return employeeDao.findAll(page,size);
     }
 
 
@@ -134,9 +145,7 @@ public class EmployeeJpaService {
             return employeeDao.update(theEmployee);
         } catch (IllegalStateException e) {
             throw new IllegalStateException("Firstname should not be null");
-        } catch (NullPointerException e) {
-            throw new ApiRequestException("No Employee was found to Update");
-        }catch (EmptyResultDataAccessException e){
+        } catch (NullPointerException  | EmptyResultDataAccessException e) {
             throw new ApiRequestException("No Employee was found to Update");
         }
     }
@@ -173,15 +182,15 @@ public class EmployeeJpaService {
 
 
     public int maxInDept(String dept) {
-        try{
+        try {
             int max = employeeDao.maxInDept(dept);
             if (max <= 0) {
                 throw new ApiRequestException("Employees does not exist in given department");
             } else {
                 return max;
             }
-        }catch (NullPointerException e) {
-            throw new ApiRequestException("Department "+dept+" not found");
+        } catch (NullPointerException e) {
+            throw new ApiRequestException("Department " + dept + " not found");
         }
 
     }
@@ -193,9 +202,9 @@ public class EmployeeJpaService {
             return employeeDao.updateSalaryById(id, salary);
         } catch (NullPointerException e) {
             throw new ApiRequestException("Employee not found");
-        }catch (EmptyResultDataAccessException e){
+        } catch (EmptyResultDataAccessException e) {
             throw new ApiRequestException("No Employee was found to Update");
-        }catch (MethodArgumentTypeMismatchException e){
+        } catch (MethodArgumentTypeMismatchException e) {
             throw new ApiRequestException("There was an error in your request");
         }
     }
@@ -204,4 +213,6 @@ public class EmployeeJpaService {
     public List<Employee> getEmployeesByCourseName(String name) {
         return employeeDao.getEmployeesByCourseName(name);
     }
+
+
 }
