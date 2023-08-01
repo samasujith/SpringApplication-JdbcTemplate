@@ -1,7 +1,50 @@
-542  [restartedMain] INFO  c.sujith.project.ProjectApplication - Starting ProjectApplication using Java 17.0.7 with PID 17348 (C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate\build\classes\java\main started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
-543  [restartedMain] DEBUG c.sujith.project.ProjectApplication - Running with Spring Boot v3.1.1, Spring v6.0.10
-543  [restartedMain] INFO  c.sujith.project.ProjectApplication - No active profile set, falling back to 1 default profile: "default"
-3582 [restartedMain] INFO  c.sujith.project.ProjectApplication - Started ProjectApplication in 3.329 seconds (process running for 3.971)
-10354 [http-nio-8080-exec-1] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/maxSalary GET 1.690882653416E12
-10400 [http-nio-8080-exec-1] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/maxSalary GET 1.690882653461E12
-10400 [http-nio-8080-exec-1] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.045 seconds.
+988  [restartedMain] INFO  c.sujith.project.ProjectApplication - Starting ProjectApplication using Java 17.0.7 with PID 27060 (C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate\build\classes\java\main started by ssama in C:\Users\ssama\workspace\git_space\SpringApplication-JdbcTemplate)
+988  [restartedMain] DEBUG c.sujith.project.ProjectApplication - Running with Spring Boot v3.1.1, Spring v6.0.10
+989  [restartedMain] INFO  c.sujith.project.ProjectApplication - No active profile set, falling back to 1 default profile: "default"
+4050 [restartedMain] INFO  c.sujith.project.ProjectApplication - Started ProjectApplication in 3.462 seconds (process running for 4.415)
+6018 [http-nio-8080-exec-2] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee GET 1.690886911187E12
+6147 [http-nio-8080-exec-2] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee GET 1.690886911316E12
+6147 [http-nio-8080-exec-2] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.129 seconds.
+10274 [http-nio-8080-exec-3] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee GET 1.690886915443E12
+10278 [http-nio-8080-exec-3] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee GET 1.690886915447E12
+10278 [http-nio-8080-exec-3] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.004 seconds.
+12860 [http-nio-8080-exec-4] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/department GET 1.690886918029E12
+12928 [http-nio-8080-exec-4] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/department GET 1.690886918097E12
+12928 [http-nio-8080-exec-4] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.068 seconds.
+16706 [http-nio-8080-exec-5] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/department/maxSalary GET 1.690886921875E12
+16711 [http-nio-8080-exec-5] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/department/maxSalary GET 1.69088692188E12
+16711 [http-nio-8080-exec-5] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.005 seconds.
+21879 [http-nio-8080-exec-7] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/maxSalary GET 1.690886927048E12
+21883 [http-nio-8080-exec-7] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/maxSalary GET 1.690886927052E12
+21883 [http-nio-8080-exec-7] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.004 seconds.
+24715 [http-nio-8080-exec-6] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/address GET 1.690886929884E12
+24864 [http-nio-8080-exec-6] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/address GET 1.690886930033E12
+24865 [http-nio-8080-exec-6] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.149 seconds.
+27877 [http-nio-8080-exec-8] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/course GET 1.690886933046E12
+27890 [http-nio-8080-exec-8] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/course GET 1.690886933059E12
+27890 [http-nio-8080-exec-8] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.013 seconds.
+31117 [http-nio-8080-exec-9] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses GET 1.690886936286E12
+31138 [http-nio-8080-exec-9] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/courses GET 1.690886936307E12
+31140 [http-nio-8080-exec-9] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.021 seconds.
+34334 [http-nio-8080-exec-10] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/1 DELETE 1.690886939503E12
+34418 [http-nio-8080-exec-10] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/1 DELETE 1.690886939587E12
+34419 [http-nio-8080-exec-10] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.084 seconds.
+40636 [http-nio-8080-exec-2] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee PUT 1.690886945805E12
+40685 [http-nio-8080-exec-2] INFO  c.s.p.jpaservice.EmployeeJpaService - Course already exists !
+40738 [http-nio-8080-exec-2] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee PUT 1.690886945907E12
+40738 [http-nio-8080-exec-2] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.102 seconds.
+43598 [http-nio-8080-exec-3] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/updateSalaryById PUT 1.690886948767E12
+43606 [http-nio-8080-exec-3] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/updateSalaryById PUT 1.690886948775E12
+43608 [http-nio-8080-exec-3] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.008 seconds.
+46437 [http-nio-8080-exec-4] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee POST 1.690886951606E12
+46457 [http-nio-8080-exec-4] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee POST 1.690886951626E12
+46457 [http-nio-8080-exec-4] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.02 seconds.
+48543 [http-nio-8080-exec-5] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/employee/insertAll POST 1.690886953712E12
+48608 [http-nio-8080-exec-5] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/employee/insertAll POST 1.690886953777E12
+48609 [http-nio-8080-exec-5] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.065 seconds.
+52394 [http-nio-8080-exec-7] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses POST 1.690886957563E12
+52413 [http-nio-8080-exec-7] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/courses POST 1.690886957582E12
+52414 [http-nio-8080-exec-7] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.019 seconds.
+55712 [http-nio-8080-exec-6] INFO  c.s.p.interceptor.ApiInterceptor - preHandle method is invoked /api/courses/insertMany POST 1.690886960881E12
+55732 [http-nio-8080-exec-6] INFO  c.s.p.interceptor.ApiInterceptor - postHandle method is invoked /api/courses/insertMany POST 1.690886960901E12
+55732 [http-nio-8080-exec-6] INFO  c.s.p.interceptor.ApiInterceptor - after completion is invoked Time took is 0.02 seconds.
