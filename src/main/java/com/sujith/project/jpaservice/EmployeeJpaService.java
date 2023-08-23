@@ -26,7 +26,7 @@ public class EmployeeJpaService {
     EmployeeDao employeeDao;
     CourseDao courseDao;
     EmployeeMapper employeeMapper;
-    String employeeNotFound="Employee not found with given id : ";
+    String employeeNotFound = "Employee not found with given id : ";
 
     @Autowired
     public EmployeeJpaService(EmployeeJpa employeeJpa, EmployeeDao employeeDao, CourseDao courseDao, EmployeeMapper employeeMapper) {
@@ -61,18 +61,9 @@ public class EmployeeJpaService {
     }
 
 
-    public List<Employee> findAll(int page,int size) {
+    public List<Employee> findAll(int page, int size) {
 
-//        List<Employee> employeeList=employeeJpa.findAll();
-//        int totalItems = employeeList.size();
-//        int start = page * size;
-//        int end=start + size;
-//        if (start > end || start >= totalItems) {
-//            throw new IllegalArgumentException("Invalid page number");
-//        }
-//
-//        return employeeList.subList(start, end);
-        return employeeDao.findAll(page,size);
+        return employeeDao.findAll(page, size);
     }
 
 
@@ -105,7 +96,6 @@ public class EmployeeJpaService {
             } else {
                 logger.error("Employee with lastname {} is not inserted", emp.getLastName());
             }
-
 
         }
         return employeeDao.saveAll(employeeList);
@@ -145,7 +135,7 @@ public class EmployeeJpaService {
             return employeeDao.update(theEmployee);
         } catch (IllegalStateException e) {
             throw new IllegalStateException("Firstname should not be null");
-        } catch (NullPointerException  | EmptyResultDataAccessException e) {
+        } catch (NullPointerException | EmptyResultDataAccessException e) {
             throw new ApiRequestException("No Employee was found to Update");
         }
     }

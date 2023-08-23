@@ -1,7 +1,6 @@
 package com.sujith.project.dao;
 
 import com.sujith.project.entity.*;
-
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.jdbc.core.*;
 import org.springframework.stereotype.*;
@@ -10,7 +9,6 @@ import java.util.*;
 
 @Repository
 public class CourseDaoImpl implements CourseDao {
-
 
 
     JdbcTemplate jdbcTemplate;
@@ -67,7 +65,7 @@ public class CourseDaoImpl implements CourseDao {
 
     @Override
     public Course getCourse(int id) {
-        String query = String.format("select * from course c where c.id=%d" , id);
+        String query = String.format("select * from course c where c.id=%d", id);
         return jdbcTemplate.queryForObject(query, Course.class);
 
     }

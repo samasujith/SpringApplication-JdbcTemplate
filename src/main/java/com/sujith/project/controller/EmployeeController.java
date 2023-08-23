@@ -3,7 +3,9 @@ package com.sujith.project.controller;
 import com.sujith.project.dto.*;
 import com.sujith.project.entity.*;
 import com.sujith.project.jpaservice.*;
+import com.sujith.project.mapper.FormDataMapper;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
@@ -25,16 +27,19 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/{id}")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     public EmployeeDto getById(@PathVariable int id) {
         return employeeService.findById(id);
     }
 
     @GetMapping("/employee")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     public List<Employee> getByName(@RequestParam String firstName) {
         return employeeService.getByName(firstName);
     }
 
     @GetMapping("/employee/department")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     public List<Employee> getByDepartment(@RequestParam String deptName) {
         return employeeService.findByDepartment(deptName);
 
@@ -51,12 +56,19 @@ public class EmployeeController {
     }
 
     @GetMapping("/employee/course")
+    @CrossOrigin(origins = "http://127.0.0.1:5500")
     public List<Employee> employeeWithCourseName(@RequestParam String name) {
         return employeeService.getEmployeesByCourseName(name);
     }
 
+    @PostMapping(path="/employee",  consumes = "application/x-www-form-urlencoded")
+    public Employee insertEmployeeWithJson(@ModelAttribute FormDataMapper theEmployee) {
+
+        return employeeService.save(theEmployee.getEmployeeDto());
+    }
     @PostMapping("/employee")
     public Employee insertEmployee(@RequestBody EmployeeDto theEmployee) {
+
         return employeeService.save(theEmployee);
     }
 

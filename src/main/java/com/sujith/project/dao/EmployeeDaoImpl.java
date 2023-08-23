@@ -59,7 +59,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
             employee.setSalary(rs.getInt("salary"));
             employee.setExperience(rs.getInt("experience"));
             employee.setDepartment(rs.getString("department"));
-            Address address1 = jdbcTemplate.queryForObject(String.format("select * from address a where a.id=%d",rs.getInt("address_id")) ,
+            Address address1 = jdbcTemplate.queryForObject(String.format("select * from address a where a.id=%d", rs.getInt("address_id")),
                     (rs1, rowNum1) -> {
                         Address address = new Address();
                         address.setId(rs1.getInt("id"));
@@ -86,14 +86,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public List<Employee> getByName(String fname) {
 
-        String query = String.format("select * from employees e where e.first_name=\"%s\"",fname) ;
+        String query = String.format("select * from employees e where e.first_name=\"%s\"", fname);
         List<Employee> employeeList = jdbcTemplate.query(query, rowMapper);
         for (Employee employee : employeeList) {
             Address address;
             List<Course> courses;
-            address = jdbcTemplate.queryForObject(String.format("select * from address a where a.id =%d",employee.getId()) , addressRowMapper);
+            address = jdbcTemplate.queryForObject(String.format("select * from address a where a.id =%d", employee.getId()), addressRowMapper);
             employee.setAddress(address);
-            courses = jdbcTemplate.query(String.format("select c.* from course c, employee_course ec where ec.employee_id= %d and ec.course_id=c.id",employee.getId()), courseRowMapper);
+            courses = jdbcTemplate.query(String.format("select c.* from course c, employee_course ec where ec.employee_id= %d and ec.course_id=c.id", employee.getId()), courseRowMapper);
             employee.setCourseList(courses);
         }
         return employeeList;
@@ -162,9 +162,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
         for (Employee employee : employeeList) {
             Address address;
             List<Course> courses;
-            address = jdbcTemplate.queryForObject(String.format("select * from address a where a.id =%d" , employee.getId()), addressRowMapper);
+            address = jdbcTemplate.queryForObject(String.format("select * from address a where a.id =%d", employee.getId()), addressRowMapper);
             employee.setAddress(address);
-            courses = jdbcTemplate.query(String.format("select c.* from course c, employee_course ec where ec.employee_id= %d and ec.course_id=c.id",employee.getId()), courseRowMapper);
+            courses = jdbcTemplate.query(String.format("select c.* from course c, employee_course ec where ec.employee_id= %d and ec.course_id=c.id", employee.getId()), courseRowMapper);
             employee.setCourseList(courses);
         }
         return employeeList;
@@ -189,7 +189,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
             String courseQuery = "select count(course_name) from course where course_name=?";
             int count = jdbcTemplate.queryForObject(courseQuery, Integer.class, course.getCourseName());
             if (count > 0) {
-                Course course1 = jdbcTemplate.queryForObject(String.format("select * from course c where c.course_name=\"%s\"",course.getCourseName()), courseRowMapper);
+                Course course1 = jdbcTemplate.queryForObject(String.format("select * from course c where c.course_name=\"%s\"", course.getCourseName()), courseRowMapper);
                 updatedList.add(course1);
             } else {
                 int totalCourses = jdbcTemplate.queryForObject("select count(id) from course", Integer.class);
@@ -213,8 +213,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public int maxSalary() {
 
-        Integer max= jdbcTemplate.queryForObject("select max(salary) from employees ", Integer.class);
-        if(max==null){
+        Integer max = jdbcTemplate.queryForObject("select max(salary) from employees ", Integer.class);
+        if (max == null) {
             throw new ApiRequestException("No Employees wer found");
         } else {
             return max;
@@ -225,17 +225,18 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public List<Employee> findByDepartment(String dept) {
 
-        String query = String.format("SELECT * FROM employees e JOIN employee_course ec ON e.id = ec.employee_id "
-                +
-                " JOIN Course c ON ec.course_id = c.id WHERE e.department =\"%s\" ", dept) ;
+//        String query = String.format("SELECT * FROM employees e JOIN employee_course ec ON e.id = ec.employee_id "
+//                +
+//                " JOIN Course c ON ec.course_id = c.id WHERE e.department =\"%s\" ", dept);
+        String query = String.format("SELECT * FROM employees e  WHERE e.department =\"%s\" ", dept);
         List<Employee> employeeList = jdbcTemplate.query(query, rowMapper);
         for (Employee employee : employeeList) {
             new Address();
             Address address;
             List<Course> courses;
-            address = jdbcTemplate.queryForObject(String.format("select * from address a where a.id =%d" , employee.getId()), addressRowMapper);
+            address = jdbcTemplate.queryForObject(String.format("select * from address a where a.id =%d", employee.getId()), addressRowMapper);
             employee.setAddress(address);
-            courses = jdbcTemplate.query(String.format("select c.* from course c, employee_course ec where ec.employee_id= %d and ec.course_id=c.id",employee.getId()), courseRowMapper);
+            courses = jdbcTemplate.query(String.format("select c.* from course c, employee_course ec where ec.employee_id= %d and ec.course_id=c.id", employee.getId()), courseRowMapper);
             employee.setCourseList(courses);
         }
         return employeeList;
@@ -244,7 +245,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public int maxInDept(String dept) {
 
-        Integer max = jdbcTemplate.queryForObject(String.format("select max(salary) from employees e where e.department=\"%s\" ",dept), Integer.class);
+        Integer max = jdbcTemplate.queryForObject(String.format("select max(salary) from employees e where e.department=\"%s\" ", dept), Integer.class);
         if (max == null) {
             throw new ApiRequestException("No Employees were found");
         } else {
@@ -254,7 +255,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public Employee updateSalaryById(int id, int salary) {
-        jdbcTemplate.update(String.format("update employees e set e.salary= %d where e.id= %d", salary , id));
+        jdbcTemplate.update(String.format("update employees e set e.salary= %d where e.id= %d", salary, id));
         return findById(id);
     }
 
@@ -262,15 +263,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
     public List<Employee> getEmployeesByCourseName(String name) {
         String query = String.format("SELECT * FROM employees e JOIN employee_course ec ON e.id = ec.employee_id "
                 +
-                " JOIN Course c ON ec.course_id = c.id WHERE c.course_name =\"%s\" " ,name );
+                " JOIN Course c ON ec.course_id = c.id WHERE c.course_name =\"%s\" ", name);
         List<Employee> employeeList = jdbcTemplate.query(query, rowMapper);
         for (Employee employee : employeeList) {
             new Address();
             Address address;
             List<Course> courses;
-            address = jdbcTemplate.queryForObject(String.format("select * from address a where a.id =%d" , employee.getId()), addressRowMapper);
+            address = jdbcTemplate.queryForObject(String.format("select * from address a where a.id =%d", employee.getId()), addressRowMapper);
             employee.setAddress(address);
-            courses = jdbcTemplate.query(String.format("select c.* from course c, employee_course ec where ec.employee_id= %d and ec.course_id=c.id",employee.getId()), courseRowMapper);
+            courses = jdbcTemplate.query(String.format("select c.* from course c, employee_course ec where ec.employee_id= %d and ec.course_id=c.id", employee.getId()), courseRowMapper);
             employee.setCourseList(courses);
         }
         return employeeList;
