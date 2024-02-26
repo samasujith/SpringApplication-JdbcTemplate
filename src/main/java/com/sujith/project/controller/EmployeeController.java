@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
-
+@CrossOrigin("http://localhost:4200")
 @RequestMapping("/api")
 public class EmployeeController {
     EmployeeJpaService employeeService;
@@ -79,9 +79,7 @@ public class EmployeeController {
 
     @DeleteMapping("/employee/{id}")
     public void deleteById(@PathVariable int id) {
-
         employeeService.delete(id);
-
     }
 
 

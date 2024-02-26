@@ -77,6 +77,15 @@ public class EmployeeJpaService {
 
         try {
             Employee emp = employeeMapper.copyToEmp(theEmployee);
+            if(emp.getFirstName().length()==0){
+                throw new ApiRequestException("Name should not be Empty");
+            }
+            else if( emp.getDepartment().length()==0){
+                throw new ApiRequestException("Department should not be Empty");
+            }
+            else if(emp.getSalary()<=0){
+                throw new ApiRequestException("Salary is invalid");
+            }
             employeeDao.save(emp);
             return emp;
 
@@ -143,11 +152,17 @@ public class EmployeeJpaService {
 
     @Transactional
     public void delete(Integer id) {
-        try {
-            employeeJpa.deleteById(id);
-        } catch (IllegalStateException e) {
-            throw new IllegalStateException("Id should not be null");
+        if(id<=0){
+            throw new ApiRequestException("Id should be greater than 0");
         }
+        else{
+            try {
+                employeeJpa.deleteById(id);
+            } catch (IllegalStateException e) {
+                throw new IllegalStateException("Id should not be null");
+            }
+        }
+
 
     }
 
